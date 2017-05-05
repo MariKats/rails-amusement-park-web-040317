@@ -1,4 +1,12 @@
-<%= @user.name %>
-<%= @user.tickets %>
-<p> Mood </p> <%= @user.mood %>
-<%= @user.height %>
+<p> Name:  <%= @user.name %></p>
+<p> Mood:  <%= @user.mood %></p>
+<p> Tickets:  <%= @user.tickets %></p>
+<p> Height:  <%= @user.height %></p><br>
+
+
+<%if @user.admin == true %>
+<h2>ADMIN</h2>
+<%end%>
+
+<%= link_to 'Log Out', logout_path %>
+<%= link_to "See attractions", attractions_path %>

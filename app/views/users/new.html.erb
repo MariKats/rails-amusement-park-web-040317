@@ -1,5 +1,5 @@
 <h1>User Form: </h1>
-<%=form_for(@user) do |f| %>
+<%=form_for(User.new) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %><br>
 <%= f.label :password %>
@@ -12,5 +12,9 @@
 <%= f.number_field :nausea %><br>
 <%= f.label :tickets %>
 <%= f.number_field :tickets %><br>
+
+<%= f.label :admin %>
+<%= f.check_box :admin %><br>
+
 <%= f.submit %>
 <% end %>
