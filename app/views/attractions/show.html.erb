@@ -6,4 +6,4 @@
 <% end %>
 
 
-<%= button_to "Go on this ride", user_path() %>
+<%= button_to 'Go on this ride', {:controller => "rides", :action => "create", :method => "post", :attraction_id => @attraction.id}%>
