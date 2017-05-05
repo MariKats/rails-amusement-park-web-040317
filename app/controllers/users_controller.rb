@@ -23,19 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    @user = User.find(params[:id])
-    if @user.save
-      @user.update(user_params)
-      redirect_to user_path
-    else
-      redirect_to edit_user_path
-    end
-  end
 
-  def edit
-    @user = User.find(params[:id])
-  end 
 
   private
 

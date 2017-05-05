@@ -5,8 +5,8 @@ class AttractionsController < ApplicationController
   end
 
   def new
-    @attraction = Attraction.new 
-  end 
+    @attraction = Attraction.new
+  end
 
   def show
     @user = current_user
@@ -19,10 +19,23 @@ class AttractionsController < ApplicationController
     if @attraction.save
       redirect_to attraction_path(@attraction)
     else
-      redirect_to attractions_path()
+      redirect_to attractions_path
     end
-  end 
+  end
 
+  def update
+    @attraction = Attraction.find(params[:id])
+    if @attraction.save
+      @attraction.update(attraction_params)
+      redirect_to attraction_path
+    else
+      redirect_to edit_attraction_path
+    end
+  end
+
+  def edit
+    @attraction = Attraction.find(params[:id])
+  end
 
 
 

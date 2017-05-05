@@ -1,8 +1,16 @@
 <% @attractions.each do |attraction| %>
-  <%= link_to(attraction) do %>
-  Go on <%= attraction.name %><br>
+  <% if @user.admin %>
+  <% #binding.pry %>
+    <%= link_to(attraction_path(attraction)) do %>
+      Show <%= attraction.name %><br>
+    <% end %>
+  <% else %>
+    <%= link_to(attraction_path(attraction)) do %>
+      Go on <%= attraction.name %><br>
+    <% end %>
   <% end %>
 <% end %>
 
-
-<%= link_to 'New Attraction',  new_attraction_path%>
+<% if @user.admin %>
+  <%= link_to 'New Attraction',  new_attraction_path%>
+<% end %>
